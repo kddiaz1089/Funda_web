@@ -7,7 +7,7 @@ function login() {
         const formData = new FormData(loginForm);
 
         // make an AJAX request to your login endpoint
-        fetch('../Funda_web/php/login_inic.php', {
+        fetch('/php/login_inic.php', {
             method: 'POST',
             body: formData
         })
@@ -15,7 +15,7 @@ function login() {
         .then(data => {
             if (data.success) {
                 // if the login is successful, redirect the user
-                window.location.href = '../Funda_web/dashboard.php';
+                window.location.href = '/php/index.php';
             } else {
                 // if the login fails, display an error message
                 alert('Error: ' + data.message);

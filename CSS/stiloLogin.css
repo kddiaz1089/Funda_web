@@ -122,7 +122,17 @@ body{
     color: #a7a7a7;
 }
 .form input[type="submit"]{
-    background-color: #9191bd;
+    background-color: #1c1ce2;
+    color: #fff;
+    border-radius: 20px;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgb(0, 0, 0, .1);
+}
+.form input[type="reset"]{
+    background-color: #1c1ce2;
     color: #fff;
     border-radius: 20px;
     border: none;
@@ -132,6 +142,11 @@ body{
     box-shadow: 0 2px 5px rgb(0, 0, 0, .1);
 }
 .form input[type="submit"]:hover{
+    background-color: #01357f;
+}
+
+
+.form input[type="reset"]:hover{
     background-color: #01357f;
 }
 .hide{

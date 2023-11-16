@@ -2,53 +2,23 @@
 
 include 'conexion.php';
 
-function validarContrasena($pass) {
-        // Longitud mínima de 8 caracteres
-        if (strlen($pass) < 8) {
-            return false;
-        }
-    
-        // Contiene al menos una letra minúscula
-        if (!preg_match('/[a-z]/', $pass)) {
-            return false;
-        }
-    
-        // Contiene al menos una letra mayúscula
-        if (!preg_match('/[A-Z]/', $pass)) {
-            return false;
-        }
-    
-        // Contiene al menos dos dígitos
-        if (!preg_match('/[0-9].*[0-9]/', $pass)) {
-            return false;
-        }
-    
-        // Además, permite más de 7 caracteres especiales
-        if (!preg_match('/[@*%!]{4,}/', $pass)) {
-                return false;
-            }
-    
-        // La contraseña cumple con todos los requisitos
-        return true;
-    }
-
  $nombre_completo = $_POST['nombre_completo'];
  $correo = $_POST['correo'];
  $usuario = $_POST['usuario'];
  $pass = $_POST['pass'];
- $pass = hash('sha512',$pass);
- 
-     
- echo '
- <script>
- // Display an error message with details about the password requirements
- alert("Error: La contraseña debe tener al menos 8 caracteres, una minúscula, una mayúscula y al menos 2 números.");
- // Redirect back to the registration form
- window.location="/Funda_web/login.html";
- </script>';
-// Exit the script to prevent further execution
-exit();
 
+
+ // Validar la contraseña
+if (!validarContrasena($pass)) {
+    echo '
+        <script>
+        alert("La contraseña no cumple con los requisitos mínimos.");
+        window.location="/Funda_web/login.html";
+        </script>';
+    exit();
+}
+$pass = hash('sha512',$pass);
+ 
  $query = "INSERT INTO usuario(nombre_completo, correo, usuario, pass)
          VALUES('$nombre_completo','$correo','$usuario','$pass')";
 
@@ -84,6 +54,12 @@ exit();
         alert("ususario almacenado de forma correcta");
         window.location="/Funda_web/login.html"
         </script>';
+}
+// Función para validar la contraseña
+function validarContrasena($pass) {
+    // Mínimo 8 caracteres, al menos una minúscula, una mayúscula y dos números
+    $patron = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d.*\d)[a-zA-Z\d!@#$%^&*()-_+=<>?.,;:]{8,}$/';
+    return preg_match($patron, $pass);
 }
 
 // Cierra la conexión
