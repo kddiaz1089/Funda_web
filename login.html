@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Include Google Fonts styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;400&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,300;1,500;1,600;1,700&family=Open+Sans:wght@300&family=Oswald:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Include Boxicons CSS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>  
+    <!-- Include your custom CSS -->
+    <link rel="stylesheet" href="../Funda_web/CSS/stiloLogin.css">  
+    <title>Document</title>
+</head>
+<body>
+    <!-- Registration Section -->
+    <div  class="container-form register">
+        <section class="information">
+            <article class="info-childs">
+                <h2>Bienvenido</h2>
+                <p>Para registrarse en nuestro sitio web</p>
+                <button type="button" id="sing-in">Iniciar sesión</button>
+            </article>
+        </section>
+        <section class="form-information">
+            <article class="form-information-childs">
+                <h2>Crear una cuenta</h2>
+                <div class="icons">
+                    <i class='bx bxl-google'></i>
+                    <i class='bx bxl-github'></i>
+                    <i class='bx bxl-linkedin-square'></i>
+                </div>
+                <p>
+                    Utilice su correo electrónico para registrarse</p>
+                <!-- Registration Form -->
+                <form class="form" action="../Funda_web/php/Registro_Usuario.php" method="post">
+                    <label>
+                        <i class='bx bx-user-circle'></i>
+                        <input type="text" placeholder="Full Name" name="nombre_completo">
+                    </label>
+                    <label>
+                        <i class='bx bxs-envelope'></i>
+                        <input type="email" placeholder="Email" name="correo">
+                    </label>
+                    <label>
+                        <i class='bx bx-user'></i>
+                        <input type="text" placeholder="Username" name="usuario">
+                    </label>
+                    <label for="">
+                        <i class='bx bxs-lock'></i>
+                        <input type="password" placeholder="Password" name="pass">
+                    </label>
+                    <input type="submit" value="Register">
+                </form>
+            </article>
+        </section>
+    </div>
+
+    <!-- Second Registration Section (Login) -->
+    <div  class="container-form login hide">
+        <section class="information">
+            <article class="info-childs">
+                <h2>Bienvenido de nuevo</h2>
+                <p>Para iniciar sesión en nuestro sitio web</p>
+                <button type="button" id="sing-up">Registro</button>
+            </article>
+        </section>
+        <section class="form-information">
+            <article class="form-information-childs">
+                <h2>Iniciar sesión</h2>
+                <div class="icons">
+                    <i class='bx bxl-google'></i>
+                    <i class='bx bxl-github'></i>
+                    <i class='bx bxl-linkedin-square'></i>
+                </div>
+                <p>Inicia sesión con tu cuenta</p>
+                <!-- Login Form -->
+                <form class="form"  id="login-form" action="../Funda_web/php/login_inic.php" method="post" >
+                    <label>
+                        <i class='bx bxs-envelope'></i>
+                        <input type="email" placeholder="Email" name="correo">
+                    </label>
+                    <label for="">
+                        <i class='bx bxs-lock'></i>
+                        <input type="password" placeholder="Password" name="pass">
+                    </label>
+                    <input onclick="login()" type="submit" value="Sign In">
+                </form>
+            </article>
+        </section>
+    </div>
+    <!-- Include your custom JavaScript -->
+    <script src="../Funda_web/JS/Scrip-Login.js"></script>
+</body>
+</html>
