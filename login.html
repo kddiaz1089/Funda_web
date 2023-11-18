@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,16 +8,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Include Google Fonts styles -->
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;400&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,300;1,500;1,600;1,700&family=Open+Sans:wght@300&family=Oswald:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;400&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,300;1,500;1,600;1,700&family=Open+Sans:wght@300&family=Oswald:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <!-- Include Boxicons CSS -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>  
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- Include your custom CSS -->
-    <link rel="stylesheet" href="../Funda_web/CSS/stiloLogin.css">  
+    <link rel="stylesheet" href="/Funda_web/CSS/stiloLogin.css">
     <title>Document</title>
 </head>
+
 <body>
     <!-- Registration Section -->
-    <div  class="container-form register">
+    <main class="container-form register">
+
         <section class="information">
             <article class="info-childs">
                 <h2>Bienvenido</h2>
@@ -24,7 +29,9 @@
                 <button type="button" id="sing-in">Iniciar sesión</button>
             </article>
         </section>
+
         <section class="form-information">
+
             <article class="form-information-childs">
                 <h2>Crear una cuenta</h2>
                 <div class="icons">
@@ -56,29 +63,38 @@
                     <input type="reset" value="Limpiar">
                 </form>
             </article>
+
         </section>
-    </div>
+
+    </main>
 
     <!-- Second Registration Section (Login) -->
-    <div  class="container-form login hide">
+    <main class="container-form login hide">
+
         <section class="information">
+
             <article class="info-childs">
                 <h2>Bienvenido de nuevo</h2>
                 <p>Para iniciar sesión en nuestro sitio web</p>
                 <button type="button" id="sing-up">Registro</button>
             </article>
         </section>
+
         <section class="form-information">
+
             <article class="form-information-childs">
+
                 <h2>Iniciar sesión</h2>
-                <div class="icons">
+
+                <article class="icons">
                     <i class='bx bxl-google'></i>
                     <i class='bx bxl-github'></i>
                     <i class='bx bxl-linkedin-square'></i>
-                </div>
+                </article>
+
                 <p>Inicia sesión con tu cuenta</p>
                 <!-- Login Form -->
-                <form class="form"  id="login-form" action="../Funda_web/php/login_inic.php" method="post" >
+                <form class="form" id="login-form" action="../Funda_web/php/login_inic.php" method="post">
                     <label>
                         <i class='bx bxs-envelope'></i>
                         <input type="email" placeholder="Email" name="correo">
@@ -92,8 +108,9 @@
                 </form>
             </article>
         </section>
-    </div>
-    <!-- Include your custom JavaScript -->
+    </main>
+
     <script src="/Funda_web/JS/Scrip-Login.js"></script>
 </body>
+
 </html>

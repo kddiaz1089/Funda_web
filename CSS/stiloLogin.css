@@ -9,7 +9,7 @@ body{
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url(/Proyec_Pagina02/Imagenes/002.JPG);
+    background-image: url(../Imagenes/002.JPG);
     background-size: cover;
 }
 .container-form{

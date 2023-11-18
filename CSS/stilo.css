@@ -325,14 +325,15 @@ td {
 }
 
 .footer {
-    padding: 50px 0;
+    padding: 20px 3px;
     
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
-    background-color: #141414;
+    background-color: #292929;
+    
 }
 
 .link h3 {
@@ -455,16 +456,7 @@ td {
         margin-bottom: 30px;
     }
 
-    .blog {
-        padding: 0 30px 30px 30px;
-        flex-direction: column;
-    }
-
-    .blog-1 {
-        margin-bottom: 30px;
-    }
-
-    .footer {
+     .footer {
         padding: 30px;
     }
 
@@ -551,4 +543,35 @@ td {
 
 #product-container {
     margin-top: 20px;
+}
+#loadingMessage {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#popupCard {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 400px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: width 0.3s, height 0.3s;
+}
+
+#popupCard.active {
+    width: 400px; /* Ajusta el ancho deseado */
+    height: 600px; /* Ajusta la altura deseada */
 }
