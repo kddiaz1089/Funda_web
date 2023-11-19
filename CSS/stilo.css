@@ -17,7 +17,7 @@ body {
 }
 
 img {
-    max-width: 100%;
+    max-width: 65%;
 }
 
 .container {
@@ -85,7 +85,7 @@ img {
 }
 
 .menu-icono {
-    width: 25px;
+    width: 40px;
 }
 
 .menu label {
@@ -141,17 +141,17 @@ td {
 }
 
 .header-img {
-    flex-basis: 50%;
+    flex-basis: 28%;
     text-align: center;
 }
 
 .header-txt {
-    flex-basis: 50%;
+    flex-basis: 74%;
     text-align: center;
 }
 
 .header-txt h1 {
-    font-size: 90px;
+    font-size: 60px;
     text-transform: uppercase;
     line-height: 1;
     color: #111111;

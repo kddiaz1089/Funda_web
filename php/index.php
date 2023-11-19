@@ -101,11 +101,11 @@
     <div id="popupCard"></div>
 
     <div id="pagination"></div>
-
-    <div id="nav-buttons">
-        <button class="btn-2" onclick="prevPage()">Atras</button>
-        <button class="btn-2" onclick="nextPage()">Siguiente</button>
-    </div>
+<div id="nav-buttons">
+    <button class="btn-2" onclick="prevPage()">Atrás</button>
+    <button id="nextButton" class="btn-2" onclick="nextPage()">Siguiente</button>
+</div>
+<div id="pageInfo"></div>
 
     <footer class="footer">
         <div class="footer-content container">

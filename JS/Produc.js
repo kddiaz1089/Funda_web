@@ -1,4 +1,5 @@
 const products = [
+   
     { id: 1, name: 'GUAYOS Adidas X Crazyfast Messi.4', image: '../Imagenes/g1.JFIF', price: 500000, quality: 'premium', talla: 32, color: 'GRIS' },
     { id: 2, name: 'GUAYOS adidas predator', image: '../Imagenes/g2.jpg', price: 300000, quality: 'Medium', talla: 32, color: 'BLANCO' },
     { id: 3, name: 'GUAYOS Adidas predator mutador', image: '../Imagenes/g11.jpg', price: 200000, quality: 'premium', talla: 32, color: 'BLANCO/NARANJA' },    // Add more products as needed
@@ -10,7 +11,6 @@ const products = [
     { id: 9, name: 'GUAYOS NPUMA FUTURE Z', image: '../Imagenes/g13.jpg', price: 500000, quality: 'premium', talla: 32, color: 'BLANCO' },
     { id: 10, name: 'GUAYOS TONY 2', image: '../Imagenes/g8.jpg', price: 3000000, quality: 'Medium', talla: 32, color: 'BLANCO' },
 
-    /*  PRODUCTOS DE GUANTES */
 
     { id: 11, name: 'GUANTE PORTERO', image: '../Imagenes/gut1.jpg', price: 200000, quality: 'Low', talla: 32, color: 'NEGRO' },    // Add more products as needed
     { id: 12, name: 'GUANTE PORTERO PUMA', image: '../Imagenes/gut2.jpg', price: 200000, quality: 'Low', talla: 32, color: 'BLANCO/ROJO' },
@@ -21,45 +21,44 @@ const products = [
     { id: 17, name: 'GUANTE PORTERO GOLTY', image: '../Imagenes/gut7.jpg', price: 500000, quality: 'premium', talla: 32, color: 'VERDE' },
     { id: 18, name: 'GUANTE PORTERO WALON', image: '../Imagenes/gut8.PNG ', price: 3000000, quality: 'Medium', talla: 32, color: 'NARANJA' },
     { id: 19, name: 'GUANTE PORTERO RAYO', image: '../Imagenes/gut9.jpg', price: 200000, quality: 'Low', talla: 32, color: 'BLANCO/ROJO' },    // Add more products as needed
-    { id: 20, name: 'GUANTE PORTERO N Y K', image: '../Imagenes/gut10.jpg', price: 200000, quality: 'Low', color: 'NEGRO/AZUL' },
+    { id: 20, name: 'GUANTE PORTERO N Y K', image: '../Imagenes/gut10.jpg', price: 200000, quality: 'Low', talla: 32, color: 'BLANCO/ROJO' },
 
-    /*  PRODUCTOS DE CANILLERAS */
 
 
    
-        { id: 20, name: 'Canilleras Nike Park Shield', image: '../Imagenes/can1.png', price: 500000, quality: 'premium', talla: 32, color: 'NEGRO'},
-        { id: 21, name: 'CANILLERA PROFESIONAL GOLTY', image: '../Imagenes/can2.png', price: 3000000, quality: 'Medium', color: 'NEGRO/BLACO' },
-        { id: 22, name: 'CANILLERA MIYAGUI', image: '../Imagenes/can3.png', price: 200000, quality: 'Low', color: 'BLANCO' },    // Add more products as needed
-        { id: 23, name: 'Product 3', image: '../Imagenes/g8.jpg', price: 200000, quality: 'Low', color: 'NEGRO/AZUL' },
-        { id: 24, name: 'Adidas X Crazyfast Messi.4', image: '../Imagenes/g4.jpg', price: 500000, quality: 'premium', color: 'NEGRO/AZUL' },
-        { id: 25, name: 'Product 2', image: '../Imagenes/g7.jpg', price: 3000000, quality: 'Medium', color: 'NEGRO/AZUL' },
-        { id: 26, name: 'Product 3', image: '../Imagenes/g6.jpg', price: 200000, quality: 'Low', color: 'NEGRO/AZUL' },    // Add more products as needed
-        { id: 27, name: 'Product 3', image: '../Imagenes/g8.jpg', price: 200000, quality: 'Low', color: 'NEGRO/AZUL' },
-        { id: 28, name: 'Adidas X Crazyfast Messi.4', image: '../Imagenes/g4.jpg', price: 500000, quality: 'premium', color: 'NEGRO/AZUL' },
-        { id: 29, name: 'Product 2', image: '../Imagenes/g7.jpg', price: 3000000, quality: 'Medium', color: 'NEGRO/AZUL' },
-        { id: 30, name: 'Product 3', image: '../Imagenes/g6.jpg', price: 200000, quality: 'Low', color: 'NEGRO/AZUL' },    // Add more products as needed
-        { id: 31, name: 'Product 3', image: '../Imagenes/g8.jpg', price: 200000, quality: 'Low', color: 'NEGRO/AZUL' },
-     /* 
-        { id: 1, name: 'Adidas X Crazyfast Messi.4', image: '../Imagenes/g4.jpg', price: 500000, quality: 'premium', color: 'NEGRO/AZUL' },
-        { id: 2, name: 'Product 2', image: '../Imagenes/g7.jpg', price: 3000000, quality: 'Medium', color: 'NEGRO/AZUL' },
-        { id: 3, name: 'Product 3', image: '../Imagenes/g6.jpg', price: 200000, quality: 'Low', color: 'NEGRO/AZUL' },    // Add more products as needed
-        { id: 3, name: 'Product 3', image: '../Imagenes/g8.jpg', price: 200000, quality: 'Low', color: 'NEGRO/AZUL' },
-        { id: 1, name: 'Adidas X Crazyfast Messi.4', image: '../Imagenes/g4.jpg', price: 500000, quality: 'premium', color: 'NEGRO/AZUL' },
-        { id: 2, name: 'Product 2', image: '../Imagenes/g7.jpg', price: 3000000, quality: 'Medium' },
-        { id: 3, name: 'Product 3', image: '../Imagenes/g6.jpg', price: 200000, quality: 'Low' },    // Add more products as needed
-        { id: 3, name: 'Product 3', image: '../Imagenes/g8.jpg', price: 200000, quality: 'Low' },
-        { id: 1, name: 'Adidas X Crazyfast Messi.4', image: '../Imagenes/g4.jpg', price: 500000, quality: 'premium' },
-        { id: 2, name: 'Product 2', image: '../Imagenes/g7.jpg', price: 3000000, quality: 'Medium' },
-        { id: 3, name: 'Product 3', image: '../Imagenes/g6.jpg', price: 200000, quality: 'Low' },    // Add more products as needed
-        { id: 3, name: 'Product 3', image: '../Imagenes/g8.jpg', price: 200000, quality: 'Low' },
-        { id: 1, name: 'Adidas X Crazyfast Messi.4', image: '../Imagenes/g4.jpg', price: 500000, quality: 'premium' },
-        { id: 2, name: 'Product 2', image: '../Imagenes/g7.jpg', price: 3000000, quality: 'Medium' },
-        { id: 3, name: 'Product 3', image: '../Imagenes/g6.jpg', price: 200000, quality: 'Low' },    // Add more products as needed
-        { id: 3, name: 'Product 3', image: '../Imagenes/g8.jpg', price: 200000, quality: 'Low' },
-        { id: 1, name: 'Adidas X Crazyfast Messi.4', image: '../Imagenes/g4.jpg', price: 500000, quality: 'premium' },
-        { id: 2, name: 'Product 2', image: '../Imagenes/g7.jpg', price: 3000000, quality: 'Medium' },
-        { id: 3, name: 'Product 3', image: '../Imagenes/g6.jpg', price: 200000, quality: 'Low' },    // Add more products as needed
-        { id: 3, name: 'Product 3', image: '../Imagenes/g8.jpg', price: 200000, quality: 'Low' }, */
+        { id: 21, name: 'Canilleras Nike Park Shield', image: '../Imagenes/can1.png', price: 500000, quality: 'premium', talla: 32, color: 'NEGRO'},
+        { id: 22, name: 'CANILLERA PROFESIONAL GOLTY', image: '../Imagenes/can2.png', price: 3000000, quality: 'Medium', talla: 32, color: 'NEGRO'},
+        { id: 23, name: 'CANILLERA MIYAGUI', image: '../Imagenes/can3.png', price: 200000, quality: 'Low',  talla: 32, color: 'NEGRO' },    // Add more products as needed
+        { id: 24, name: 'CANILLERA GOLTY', image: '../Imagenes/can4.png', price: 200000, quality: 'Low', talla: 32, color: 'NEGRO'},
+        { id: 25, name: 'CANILLERA ADIDAS PREDATOR', image: '../Imagenes/can5.png', price: 500000, quality: 'premium', talla: 32, color: 'NEGRO'},
+        { id: 26, name: 'CANILLERA NIKE J GUARD', image: '../Imagenes/can6.jpg', price: 3000000, quality: 'Medium', talla: 32, color: 'NEGRO' },
+        { id: 27, name: 'CANILLERA ADIDAS EVERLITE', image: '../Imagenes/can7.jpg', price: 200000, quality: 'Low', talla: 32, color: 'NEGRO'},    // Add more products as needed
+        { id: 28, name: 'CANILLERA  TIRO CLUB', image: '../Imagenes/can8.jpg', price: 200000, quality: 'Low', talla: 32, color: 'NEGRO' },
+        { id: 29, name: 'ESPINILLERA EMOTION NIKE', image: '../Imagenes/can9.jpg', price: 500000, quality: 'premium', talla: 32, color: 'NEGRO' },
+        { id: 30, name: 'ESPINILLERA CHARGE NIKE', image: '../Imagenes/can10.jpg', price: 3000000, quality: 'Medium', talla: 32, color: 'NEGRO'},
+
+        { id: 31, name: 'Balon baloncesto Wilson NBA', image: '../Imagenes/nba.jpg', price: 500000, quality: 'premium', talla: 32, color: 'NEGRO'},
+        { id: 32, name: 'TEAM ', image: '../Imagenes/nba2.jpg', price: 3000000, quality: 'Medium', talla: 32, color: 'NEGRO' },
+        { id: 33, name: 'LEKERS 23', image: '../Imagenes/nba3.jpg', price: 200000, quality: 'Low', talla: 32, color: 'NEGRO'},    // Add more products as needed
+        { id: 34, name: 'LEKERS 23', image: '../Imagenes/nba4.jpg', price: 200000, quality: 'Low', talla: 32, color: 'NEGRO'},
+        { id: 35, name: 'LEKERS 23 PERSONALIZADA', image: '../Imagenes/nba5.jpg', price: 500000, quality: 'premium', talla: 32, color: 'NEGRO'},
+        { id: 36, name: 'Nike Manguitos Tirador NBA 2.0', image: '../Imagenes/nba6.jpg', price: 3000000, quality: 'Medium', talla: 32, color: 'NEGRO' },
+        { id: 37, name: 'Nike Manguitos Tirador NBA 2.0', image: '../Imagenes/nba7.jpg', price: 200000, quality: 'Low', talla: 32, color: 'NEGRO'},    // Add more products as needed
+        { id: 38, name: 'LeBron Soldier BLUE', image: '../Imagenes/nba8.jpg', price: 200000, quality: 'Low', talla: 32, color: 'NEGRO'},
+        { id: 39, name: ' LeBron Soldier XII iD', image: '../Imagenes/nba9.jpg', price: 500000, quality: 'premium', talla: 32, color: 'NEGRO'},
+        { id: 40, name: 'JORDAN Pin en TU', image: '../Imagenes/nba10.jpg', price: 3000000, quality: 'Medium', talla: 32, color: 'NEGRO'},
+       
+        
+        { id: 41, name: 'Raqueta ', image: '../Imagenes/ten1.jpg', price: 200000, quality: 'Low', talla: 32, color: 'NEGRO' },
+        { id: 42, name: 'Wilson Burn Pink ', image: '../Imagenes/ten2.jpg', price: 500000, quality: 'premium', talla: 32, color: 'NEGRO' },
+        { id: 43, name: 'Raqueta Wilson Us Open Blx 100 Grip 2', image: '../Imagenes/ten3.jpg', price: 3000000, quality: 'Medium', talla: 32, color: 'NEGRO' },
+        { id: 44, name: 'Pelotas Tenis X3 Und', image: '../Imagenes/ten4.jpg', price: 200000, quality: 'Low', talla: 32, color: 'NEGRO' },    // Add more products as needed
+        { id: 45, name: 'Pelotas Tenis 1 Und', image: '../Imagenes/ten5.jpg', price: 200000, quality: 'Low', talla: 32, color: 'NEGRO' },
+        { id: 46, name: 'Pantaloneta Tennis Nike Azul', image: '../Imagenes/ten6.jpg', price: 500000, quality: 'premium', talla: 32, color: 'NEGRO' },
+        { id: 47, name: ' Nike Men', image: '../Imagenes/ten7.jpg', price: 3000000, quality: 'Medium', talla: 32, color: 'NEGRO' },
+        { id: 48, name: 'Nike Mujer', image: '../Imagenes/ten8.jpg', price: 200000, quality: 'Low', talla: 32, color: 'NEGRO' },    // Add more products as needed
+        { id: 49, name: 'Artengo Ts130 negro', image: '../Imagenes/ten9.jpg', price: 200000, quality: 'Low', talla: 32, color: 'NEGRO' }, 
+        { id: 50, name: ' Nike Court... - FAIR PLAY ', image: '../Imagenes/ten10.jpg', price: 200000, quality: 'Low', talla: 32, color: 'NEGRO' }, 
 ];
 // Configuración de la cantidad de productos por página.
 const itemsPerPage = 10;
@@ -78,8 +77,7 @@ function renderProductCards() {
     const endIndex = Math.min(startIndex + itemsPerPage, filteredProducts.length);
 
     for (let i = startIndex; i < endIndex; i++) {
-        const product = filteredProducts[i];
-        const card = createProductCard(product);
+        const card = createProductCard(filteredProducts[i]);
         container.appendChild(card);
     }
 
@@ -99,48 +97,36 @@ function createProductCard(product) {
             <p>Calidad: ${product.quality}</p>
             <p>Talla: ${product.talla}</p>
             <p>Color: ${product.color}</p>
-            <button class="btn-2" onclick="handleProductActionWithLoading(this, 'details', ${product.id})"> Ver Detalle</button>
+            <button class="btn-2" onclick="handleProductActionWithLoading(this, 'details', ${product.id})">Ver Detalle</button>
         </div>
     `;
     return card;
 }
 
 function handleProductActionWithLoading(button, action, productId) {
-    const loadingMessage = document.createElement('p');
-    loadingMessage.textContent = 'Cargando...'; // Display a loading message
-    loadingMessage.className = 'loading-message';
+    const loadingMessage = showLoadingMessage(button);
 
-    const cardContainer = button.closest('.ofer-1.articulo');
-    cardContainer.appendChild(loadingMessage);
-
-    // Apply a 2-second delay using a promise and setTimeout
-    const delay = 2000; // 2 seconds
-    const delayPromise = new Promise((resolve) => {
-        setTimeout(() => {
-            resolve();
-        }, delay);
-    });
-
-    delayPromise.then(() => {
-        // Remove the loading message
-        cardContainer.removeChild(loadingMessage);
+    setTimeout(() => {
+        button.closest('.ofer-1.articulo').removeChild(loadingMessage);
         handleProductAction(action, productId);
-    });
+    }, 2000);
 }
 
-// Rest of your code remains unchanged...
-
+function showLoadingMessage(button) {
+    const loadingMessage = document.createElement('p');
+    loadingMessage.textContent = 'Cargando...';
+    loadingMessage.className = 'loading-message';
+    button.closest('.ofer-1.articulo').appendChild(loadingMessage);
+    return loadingMessage;
+}
 
 function handleProductAction(action, productId) {
-    if (action === 'edit') {
-        editProduct(productId);
-    } else if (action === 'details') {
-        showProductDetails(productId);
-    }
+    if (action === 'edit') editProduct(productId);
+    else if (action === 'details') showProductDetails(productId);
 }
 
 function showProductDetails(productId) {
-    const product = filteredProducts.find(product => product.id === productId);
+    const product = filteredProducts.find(p => p.id === productId);
     const popupContent = `
         <h2>${product.name}</h2>
         <img src="${product.image}" alt="${product.name}">
@@ -161,18 +147,11 @@ function openPopup(content) {
     popupCard.style.display = 'block';
 }
 
-
-
-// Función para renderizar la paginación.
 function renderPagination() {
-    // Calcular el número total de páginas necesarias.
-    const totalPages = Math.ceil(products.length / itemsPerPage);
-
-    // Obtener el elemento de la paginación.
+    const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
     const pagination = document.getElementById('pagination');
     pagination.innerHTML = '';
 
-    // Generar botones de página y agregar oyentes de eventos.
     for (let i = 1; i <= totalPages; i++) {
         const pageButton = document.createElement('button');
         pageButton.innerText = i;
@@ -183,9 +162,18 @@ function renderPagination() {
         });
         pagination.appendChild(pageButton);
     }
+
+    // Deshabilita el botón "Siguiente" en la última página
+    const nextButton = document.getElementById('nextButton');
+    nextButton.disabled = currentPage === totalPages;
+
+    // Muestra la cantidad de elementos en la página actual
+    const pageInfo = document.getElementById('pageInfo');
+    const startIdx = (currentPage - 1) * itemsPerPage + 1;
+    const endIdx = Math.min(currentPage * itemsPerPage, filteredProducts.length);
+    pageInfo.innerText = `Mostrando ${startIdx} - ${endIdx} de ${filteredProducts.length} productos`;
 }
 
-// Función para navegar a la página anterior.
 function prevPage() {
     if (currentPage > 1) {
         currentPage--;
@@ -194,9 +182,8 @@ function prevPage() {
     }
 }
 
-// Función para navegar a la página siguiente.
 function nextPage() {
-    const totalPages = Math.ceil(products.length / itemsPerPage);
+    const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
     if (currentPage < totalPages) {
         currentPage++;
         renderProductCards();
@@ -204,21 +191,28 @@ function nextPage() {
     }
 }
 
-// Función para filtrar los productos según el nombre ingresado.
 function filterProducts() {
     const input = document.getElementById('productName').value.toLowerCase();
     filteredProducts = products.filter(product => product.name.toLowerCase().includes(input));
     currentPage = 1;
     renderProductCards();
+    renderPagination();
 }
 
-// Función para restablecer el filtro y mostrar todos los productos.
 function resetFilter() {
     document.getElementById('productName').value = '';
-    filteredProducts = products.slice(); // Restablecer a todos los productos
+    filteredProducts = products.slice();
     currentPage = 1;
     renderProductCards();
+    renderPagination();
 }
+
+// Llama a esta función para inicializar la paginación y los productos al cargar la página.
+function initializePage() {
+    renderProductCards();
+    renderPagination();
+}
+
 
 // Función para editar un producto con el ID proporcionado.
 function editProduct(productId) {
