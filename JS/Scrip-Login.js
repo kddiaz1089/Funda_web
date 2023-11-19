@@ -20,4 +20,3 @@ btnSingUp.addEventListener("click", e => {
     formRegister.classList.remove("hide");
 });
 
-

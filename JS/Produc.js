@@ -67,23 +67,28 @@ const itemsPerPage = 10;
 let currentPage = 1;
 
 // Copia de todos los productos al principio para facilitar el filtrado.
-let filteredProducts = products.slice();
+let filtrarProducto = products.slice();
 // Función para renderizar las tarjetas de productos en la interfaz.
+// Función para renderizar las tarjetas de productos en la página.
 function renderProductCards() {
     const container = document.getElementById('product-container');
     container.innerHTML = '';
 
+    // Calcular el índice de inicio y fin para la paginación.
     const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = Math.min(startIndex + itemsPerPage, filteredProducts.length);
+    const endIndex = Math.min(startIndex + itemsPerPage, filtrarProducto.length);
 
+    // Crear y agregar las tarjetas de productos al contenedor.
     for (let i = startIndex; i < endIndex; i++) {
-        const card = createProductCard(filteredProducts[i]);
+        const card = createProductCard(filtrarProducto[i]);
         container.appendChild(card);
     }
 
-    renderPagination();
+    // Renderizar la paginación.
+    renderizarPaginacion();
 }
 
+// Función para crear una tarjeta de producto.
 function createProductCard(product) {
     const card = document.createElement('article');
     card.className = 'ofer-1 articulo';
@@ -97,122 +102,132 @@ function createProductCard(product) {
             <p>Calidad: ${product.quality}</p>
             <p>Talla: ${product.talla}</p>
             <p>Color: ${product.color}</p>
-            <button class="btn-2" onclick="handleProductActionWithLoading(this, 'details', ${product.id})">Ver Detalle</button>
+            <button class="btn-2" onclick="DetProduct(this, 'detalles', ${product.id})">Ver Detalle</button>
         </div>
     `;
     return card;
 }
 
-function handleProductActionWithLoading(button, action, productId) {
-    const loadingMessage = showLoadingMessage(button);
+// Función para manejar una acción de producto con carga.
+function DetProduct(button, action, productId) {
+    const cargarMensaje = showcargarMensaje(button);
 
+    // Simular una carga antes de realizar la acción real.
     setTimeout(() => {
-        button.closest('.ofer-1.articulo').removeChild(loadingMessage);
-        handleProductAction(action, productId);
+        button.closest('.ofer-1.articulo').removeChild(cargarMensaje);
+        accionProducto(action, productId);
     }, 2000);
 }
 
-function showLoadingMessage(button) {
-    const loadingMessage = document.createElement('p');
-    loadingMessage.textContent = 'Cargando...';
-    loadingMessage.className = 'loading-message';
-    button.closest('.ofer-1.articulo').appendChild(loadingMessage);
-    return loadingMessage;
+// Función para mostrar un mensaje de carga.
+function showcargarMensaje(button) {
+    const cargarMensaje = document.createElement('p');
+    cargarMensaje.textContent = 'Cargando...';
+    cargarMensaje.className = 'loading-message';
+    button.closest('.ofer-1.articulo').appendChild(cargarMensaje);
+    return cargarMensaje;
 }
 
-function handleProductAction(action, productId) {
+// Función para manejar la acción de un producto.
+function accionProducto(action, productId) {
     if (action === 'edit') editProduct(productId);
-    else if (action === 'details') showProductDetails(productId);
+    else if (action === 'detalles') mostrarDetalleProducto(productId);
 }
 
-function showProductDetails(productId) {
-    const product = filteredProducts.find(p => p.id === productId);
-    const popupContent = `
+// Función para mostrar los detalles de un producto.
+function mostrarDetalleProducto(productId) {
+    const product = filtrarProducto.find(p => p.id === productId);
+    const contenidoEmergente = `
         <h2>${product.name}</h2>
         <img src="${product.image}" alt="${product.name}">
         <p>Precio: $${product.price}</p>
         <p>Calidad: ${product.quality}</p>
         <p>Talla: ${product.talla}</p>
         <p>Color: ${product.color}</p>
-        <button class="btn-2" onclick="handleProductAction('edit', ${product.id})">Editar</button>
+        <button class="btn-2" onclick="accionProducto('edit', ${product.id})">Editar</button>
         <button class="btn-2" onclick="closePopup()">Exit</button>
     `;
-    openPopup(popupContent);
+    abrirCard(contenidoEmergente);
 }
 
-
-function openPopup(content) {
+// Función para abrir un popup con contenido dado.
+function abrirCard(content) {
     const popupCard = document.getElementById('popupCard');
     popupCard.innerHTML = content;
     popupCard.style.display = 'block';
 }
 
-function renderPagination() {
-    const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+// Función para renderizar la paginación.
+function renderizarPaginacion() {
+    const totalPaginas = Math.ceil(filtrarProducto.length / itemsPerPage);
     const pagination = document.getElementById('pagination');
     pagination.innerHTML = '';
 
-    for (let i = 1; i <= totalPages; i++) {
-        const pageButton = document.createElement('button');
-        pageButton.innerText = i;
-        pageButton.addEventListener('click', () => {
+    // Crear botones de página y agregar eventos de clic.
+    for (let i = 1; i <= totalPaginas; i++) {
+        const pagina = document.createElement('button');
+        pagina.innerText = i;
+        pagina.addEventListener('click', () => {
             currentPage = i;
             renderProductCards();
-            renderPagination();
+            renderizarPaginacion();
         });
-        pagination.appendChild(pageButton);
+        pagination.appendChild(pagina);
     }
 
-    // Deshabilita el botón "Siguiente" en la última página
+    // Deshabilitar el botón "Siguiente" en la última página.
     const nextButton = document.getElementById('nextButton');
-    nextButton.disabled = currentPage === totalPages;
+    nextButton.disabled = currentPage === totalPaginas;
 
-    // Muestra la cantidad de elementos en la página actual
+    // Mostrar información sobre la cantidad de elementos en la página actual.
     const pageInfo = document.getElementById('pageInfo');
     const startIdx = (currentPage - 1) * itemsPerPage + 1;
-    const endIdx = Math.min(currentPage * itemsPerPage, filteredProducts.length);
-    pageInfo.innerText = `Mostrando ${startIdx} - ${endIdx} de ${filteredProducts.length} productos`;
+    const endIdx = Math.min(currentPage * itemsPerPage, filtrarProducto.length);
+    pageInfo.innerText = `Mostrando ${startIdx} - ${endIdx} de ${filtrarProducto.length} productos`;
 }
 
+// Función para retroceder a la página anterior.
 function prevPage() {
     if (currentPage > 1) {
         currentPage--;
         renderProductCards();
-        renderPagination();
+        renderizarPaginacion();
     }
 }
 
+// Función para avanzar a la siguiente página.
 function nextPage() {
-    const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
-    if (currentPage < totalPages) {
+    const totalPaginas = Math.ceil(filtrarProducto.length / itemsPerPage);
+    if (currentPage < totalPaginas) {
         currentPage++;
         renderProductCards();
-        renderPagination();
+        renderizarPaginacion();
     }
 }
 
+// Función para filtrar productos según el nombre ingresado.
 function filterProducts() {
     const input = document.getElementById('productName').value.toLowerCase();
-    filteredProducts = products.filter(product => product.name.toLowerCase().includes(input));
+    filtrarProducto = products.filter(product => product.name.toLowerCase().includes(input));
     currentPage = 1;
     renderProductCards();
-    renderPagination();
+    renderizarPaginacion();
 }
 
+// Función para restablecer el filtro y mostrar todos los productos.
 function resetFilter() {
     document.getElementById('productName').value = '';
-    filteredProducts = products.slice();
+    filtrarProducto = products.slice();
     currentPage = 1;
     renderProductCards();
-    renderPagination();
+    renderizarPaginacion();
 }
 
 // Llama a esta función para inicializar la paginación y los productos al cargar la página.
 function initializePage() {
     renderProductCards();
-    renderPagination();
+    renderizarPaginacion();
 }
-
 
 // Función para editar un producto con el ID proporcionado.
 function editProduct(productId) {
@@ -237,17 +252,20 @@ function editProduct(productId) {
 // Renderización inicial al cargar la página.
 renderProductCards();
 
-function openPopup(content) {
+// Función para abrir un popup con contenido dado.
+function abrirCard(content) {
     const popupCard = document.getElementById('popupCard');
     popupCard.innerHTML = content;
     popupCard.classList.add('active');
     popupCard.style.display = 'block';
 }
 
-function closePopup() { // cierra la ventana cuando se presiona el boton exit
+// Función para cerrar el popup.
+function closePopup() {
     const popupCard = document.getElementById('popupCard');
     popupCard.classList.remove('active');
     setTimeout(() => {
         popupCard.style.display = 'none';
     }, 200); // Ajusta el tiempo de la transición
 }
+
