@@ -4,18 +4,32 @@ session_start();
 include 'conexion.php';
 
 function validarPassword($pass) {
-    return preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d{2,}).{8,}$/', $pass)
-        ? true
-        : "La contraseña debe tener al menos 8 caracteres, una letra minúscula, una letra mayúscula y al menos 2 números.";
+    if (strlen($pass) < 8) {
+        return "La contraseña debe tener al menos 8 caracteres.";
+    }
+    
+    if (!preg_match('/[a-z]/', $pass)) {
+        return "La contraseña debe contener al menos una letra minúscula.";
+    }
+    
+    if (!preg_match('/[A-Z]/', $pass)) {
+        return "La contraseña debe contener al menos una letra mayúscula.";
+    }
+    
+    if (preg_match_all('/\d/', $pass) < 2) {
+        return "La contraseña debe contener al menos 2 números.";
+    }
+    
+    return true;
 }
 
 $correo = $_POST['correo'];
 $pass = $_POST['pass'];
 
-$passwordValidationResult = validarPassword($pass);
+$validarPassword = validarPassword($pass);
 
-if ($passwordValidationResult !== true) {
-    echo '<script>alert("Error: ' . $passwordValidationResult . '"); window.location="/Funda_web/login.html";</script>';
+if ($validarPassword !== true) {
+    echo '<script>alert("Error: ' . $validarPassword . '"); window.location="/Funda_web/login.html";</script>';
     exit;
 }
 
@@ -38,6 +52,3 @@ if (mysqli_num_rows($validar_login) > 0) {
 
 exit;
 ?>
-
-
-

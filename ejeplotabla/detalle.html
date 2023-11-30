@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Artículo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 50%;
+            margin: 50px auto;
+        }
+
+        .back-btn {
+            padding: 10px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Detalle del Artículo</h2>
+        <p>ID del Artículo: <span id="articleId"></span></p>
+        <label for="articleName">Nombre del Artículo:</label>
+        <input type="text" id="articleName">
+        <br>
+        <button class="back-btn" onclick="volverATabla()">Atrás</button>
+    </div>
+
+    <script>
+        // Obtener el ID del artículo de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleId = urlParams.get('id');
+        
+        // Mostrar el ID del artículo en la página
+        document.getElementById('articleId').innerText = articleId;
+
+        function volverATabla() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

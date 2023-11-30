@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Preconnect to Google Fonts -->
+    <!-- Preconectar a Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Include Google Fonts styles -->
+    <!-- Incluir estilos de Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;400&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,300;1,500;1,600;1,700&family=Open+Sans:wght@300&family=Oswald:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <!-- Include Boxicons CSS -->
+    <!-- Incluir estilos de Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- Include your custom CSS -->
+    <!-- Incluir tu CSS personalizado -->
     <link rel="stylesheet" href="/Funda_web/CSS/stiloLogin.css">
     <title>Document</title>
 </head>
 
 <body>
-    <!-- Registration Section -->
+    <!-- Sección de Registro -->
     <main class="container-form register">
 
         <section class="information">
@@ -40,8 +40,8 @@
                     <i class='bx bxl-linkedin-square'></i>
                 </div>
                 <p>
-                    Utilice su correo electrónico para registrarse</p>
-                <!-- Registration Form -->
+                    Utiliza tu correo electrónico para registrarte</p>
+                <!-- Formulario de Registro -->
                 <form class="form" action="../Funda_web/php/Registro_Usuario.php" method="post">
                     <label>
                         <i class='bx bx-user-circle'></i>
@@ -49,7 +49,7 @@
                     </label>
                     <label>
                         <i class='bx bxs-envelope'></i>
-                        <input type="email" placeholder="Email" name="correo">
+                        <input type="email" placeholder="Correo electrónico" name="correo">
                     </label>
                     <label>
                         <i class='bx bx-user'></i>
@@ -57,10 +57,12 @@
                     </label>
                     <label for="">
                         <i class='bx bxs-lock'></i>
-                        <input type="password" placeholder="Password" name="pass">
+                        <input type="password" placeholder="Contraseña" name="pass">
                     </label>
                     <input type="submit" value="Registro">
                     <input type="reset" value="Limpiar">
+                    
+                
                 </form>
             </article>
 
@@ -68,7 +70,7 @@
 
     </main>
 
-    <!-- Second Registration Section (Login) -->
+    <!-- Segunda Sección de Registro (Inicio de Sesión) -->
     <main class="container-form login hide">
 
         <section class="information">
@@ -93,19 +95,20 @@
                 </article>
 
                 <p>Inicia sesión con tu cuenta</p>
-                <!-- Login Form -->
+                <!-- Formulario de Inicio de Sesión -->
                 <form class="form" id="login-form" action="../Funda_web/php/login_inic.php" method="post">
                     <label>
                         <i class='bx bxs-envelope'></i>
-                        <input type="email" placeholder="Email" name="correo">
+                        <input type="email" placeholder="Correo electrónico" name="correo">
                     </label>
                     <label for="">
                         <i class='bx bxs-lock'></i>
-                        <input type="password" placeholder="Password" name="pass">
+                        <input type="password" placeholder="Contraseña" name="pass">
                     </label>
-                    <input onclick="login()" type="submit" value="Inicia Sesion">
+                    <input onclick="login()" type="submit" value="Iniciar Sesión">
                     <input type="reset" value="Limpiar">
                     <div id="loading-container"></div>
+                    <p id="mensaje"></p>
                 </form>
                 
             </article>
