@@ -92,18 +92,18 @@ function createProductCard(product) {
             <img src="${product.image}" alt="${product.name}">
         </div>
         <div class="ofer-txt">
-            <h3>${product.name}</h3>
+            <h3>Nombre:${product.name}</h3>
             <p>Precio: $${product.price}</p>
             <p>Calidad: ${product.quality}</p>
             <p>Talla: ${product.talla}</p>
             <p>Color: ${product.color}</p>
-            <button class="btn-2" onclick="handleProductActionWithLoading(this, 'details', ${product.id})"> Ver Detalle</button>
+            <button class="btn-2" onclick="manejaProducto(this, 'details', ${product.id})"> Ver Detalle</button>
         </div>
     `;
     return card;
 }
 
-function handleProductActionWithLoading(button, action, productId) {
+function manejaProducto(button, action, productId) {
     const loadingMessage = document.createElement('p');
     loadingMessage.textContent = 'Cargando...'; // Display a loading message
     loadingMessage.className = 'loading-message';
@@ -140,7 +140,7 @@ function handleProductAction(action, productId) {
 function showProductDetails(productId) {
     const product = filteredProducts.find(product => product.id === productId);
     const popupContent = `
-        <h2>${product.name}</h2>
+        <h2>Nombre:${product.name}</h2>
         <img src="${product.image}" alt="${product.name}">
         <p>Precio: $${product.price}</p>
         <p>Calidad: ${product.quality}</p>
@@ -164,11 +164,16 @@ function openPopup(content) {
 // Función para renderizar la paginación.
 function renderPagination() {
     // Calcular el número total de páginas necesarias.
-    const totalPages = Math.ceil(products.length / itemsPerPage);
+    const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
 
     // Obtener el elemento de la paginación.
     const pagination = document.getElementById('pagination');
     pagination.innerHTML = '';
+
+    // Agregar un elemento para mostrar el total de páginas.
+    const totalPageInfo = document.createElement('span');
+    totalPageInfo.innerText = ` de ${totalPages}`;
+    pagination.appendChild(totalPageInfo);
 
     // Generar botones de página y agregar oyentes de eventos.
     for (let i = 1; i <= totalPages; i++) {
@@ -181,6 +186,24 @@ function renderPagination() {
         });
         pagination.appendChild(pageButton);
     }
+
+    // Deshabilitar el botón "Next" en la última página.
+    const nextPageButton = document.getElementById('nextPageButton');
+    if (currentPage === totalPages) {
+        nextPageButton.disabled = true;
+    } else {
+        nextPageButton.disabled = false;
+    }
+}
+
+// Función para navegar a la página anterior.
+function nextPage() {
+    const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+    if (currentPage < totalPages) {
+        currentPage++;
+        renderProductCards();
+        renderPagination();
+    }
 }
 
 // Función para navegar a la página anterior.
@@ -192,27 +215,28 @@ function prevPage() {
     }
 }
 
-// Función para navegar a la página siguiente.
-function nextPage() {
-    const totalPages = Math.ceil(products.length / itemsPerPage);
-    if (currentPage < totalPages) {
-        currentPage++;
-        renderProductCards();
-        renderPagination();
-    }
-}
 
 // Función para filtrar los productos según el nombre ingresado.
 function filterProducts() {
     const input = document.getElementById('productName').value.toLowerCase();
-    filteredProducts = products.filter(product => product.name.toLowerCase().includes(input));
-    filteredProducts = products.filter(product => product.color.toLowerCase().includes(input));
+    console.log('Input:', input); // Agregamos un log para verificar la entrada
+
+    filteredProducts = products.filter(
+        product => {
+            const nameMatch = product.name.toLowerCase().includes(input);
+            const colorMatch = product.color.toLowerCase().includes(input);
+            console.log('Product:', product.name, 'Name Match:', nameMatch, 'Color Match:', colorMatch); // Agregamos un log para verificar el producto y las coincidencias
+            return nameMatch || colorMatch;
+        }
+    );
+    
     currentPage = 1;
     renderProductCards();
 }
 
+
 // Función para restablecer el filtro y mostrar todos los productos.
-function resetFilter() {
+function borrarFiltro() {
     document.getElementById('productName').value = '';
     filteredProducts = products.slice(); // Restablecer a todos los productos
     currentPage = 1;
@@ -223,17 +247,17 @@ function resetFilter() {
 function editProduct(productId) {
     const product = products.find(p => p.id === productId);
     if (product) {
-        const newPrice = prompt('Ingrese el nuevo precio:');
-        const newQuality = prompt('Ingrese la nueva calidad:');
-        const newtalla = prompt('Ingrese la nueva talla:');
-        const newcolor = prompt('Ingrese nuevo color');
+        const nuevoPrecio = prompt('Ingrese el nuevo precio:');
+        const nuevaCalidad = prompt('Ingrese la nueva calidad:');
+        const nuevaTalla = prompt('Ingrese la nueva talla:');
+        const nuevoColor = prompt('Ingrese nuevo color');
 
-        if (newPrice !== null && newQuality !== null && newtalla !== null && newcolor !== null) {
+        if (nuevoPrecio !== null && nuevaCalidad !== null && nuevaTalla !== null && nuevoColor !== null) {
             // Actualizar el precio y la calidad del producto.
-            product.price = parseFloat(newPrice);
-            product.quality = newQuality;
-            product.talla = parseInt(newtalla);
-            product.color = newcolor;
+            product.price = parseFloat(nuevoPrecio);
+            product.quality = nuevaCalidad;
+            product.talla = parseInt(nuevaTalla);
+            product.color = nuevoColor;
             renderProductCards();
         }
     }

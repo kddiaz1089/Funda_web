@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION['error_message'])) {
+    echo '<div class="error-message">' . $_SESSION['error_message'] . '</div>';
+    unset($_SESSION['error_message']);
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -70,7 +77,9 @@
     <div id="pagination"></div>
     <div id="nav-buttons">
         <button class="btn-2" onclick="prevPage()">Atrás</button>
-        <button id="nextButton" class="btn-2" onclick="nextPage()">Siguiente</button>
+        <!-- Add this button in your HTML -->
+<button id="nextPageButton" class="btn-2"onclick="nextPage()">Siguiente</button>
+
     </div>
     <div id="pageInfo"></div>
 
