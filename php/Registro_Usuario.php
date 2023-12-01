@@ -47,7 +47,7 @@ $pass = hash('sha512',$pass);
       
 
          $ejecutar=mysqli_query($conexion, $query);
-
+ 
         
          if($ejecutar){
          echo'<script>
