@@ -94,7 +94,7 @@ function createProductCard(product) {
         <div class="ofer-txt">
             <h3>Nombre:${product.name}</h3>
             <p>Precio: $${product.price}</p>
-            <p>Calidad: ${product.quality}</p>
+            <p>Calidad: ${product.calidad}</p>
             <p>Talla: ${product.talla}</p>
             <p>Color: ${product.color}</p>
             <button class="btn-2" onclick="manejaProducto(this, 'details', ${product.id})"> Ver Detalle</button>
@@ -111,8 +111,8 @@ function manejaProducto(button, action, productId) {
     const cardContainer = button.closest('.ofer-1.articulo');
     cardContainer.appendChild(loadingMessage);
 
-    // Apply a 2-second delay using a promise and setTimeout
-    const delay = 2000; // 2 seconds
+
+    const delay = 2000; 
     const delayPromise = new Promise((resolve) => {
         setTimeout(() => {
             resolve();
@@ -120,30 +120,28 @@ function manejaProducto(button, action, productId) {
     });
 
     delayPromise.then(() => {
-        // Remove the loading message
         cardContainer.removeChild(loadingMessage);
         handleProductAction(action, productId);
     });
 }
 
-// Rest of your code remains unchanged...
 
 
 function handleProductAction(action, productId) {
     if (action === 'edit') {
         editProduct(productId);
     } else if (action === 'details') {
-        showProductDetails(productId);
+        mostrardetallesdelproducto(productId);
     }
 }
 
-function showProductDetails(productId) {
+function mostrardetallesdelproducto(productId) {
     const product = filteredProducts.find(product => product.id === productId);
     const popupContent = `
         <h2>Nombre:${product.name}</h2>
         <img src="${product.image}" alt="${product.name}">
         <p>Precio: $${product.price}</p>
-        <p>Calidad: ${product.quality}</p>
+        <p>Calidad: ${product.calidad}</p>
         <p>Talla: ${product.talla}</p>
         <p>Color: ${product.color}</p>
         <button class="btn-2" onclick="handleProductAction('edit', ${product.id})">Editar</button>
@@ -170,10 +168,10 @@ function renderPagination() {
     const pagination = document.getElementById('pagination');
     pagination.innerHTML = '';
 
-    // Agregar un elemento para mostrar el total de páginas.
-    const totalPageInfo = document.createElement('span');
-    totalPageInfo.innerText = ` de ${totalPages}`;
-    pagination.appendChild(totalPageInfo);
+    // Agregar un elemento para mostrar el total de páginas y la página actual.
+    const pageInfo = document.createElement('span');
+    pageInfo.innerText = `Página ${currentPage} de ${totalPages} - Total de elementos: ${filteredProducts.length}`;
+    pagination.appendChild(pageInfo);
 
     // Generar botones de página y agregar oyentes de eventos.
     for (let i = 1; i <= totalPages; i++) {
@@ -189,14 +187,10 @@ function renderPagination() {
 
     // Deshabilitar el botón "Next" en la última página.
     const nextPageButton = document.getElementById('nextPageButton');
-    if (currentPage === totalPages) {
-        nextPageButton.disabled = true;
-    } else {
-        nextPageButton.disabled = false;
-    }
+    nextPageButton.disabled = currentPage === totalPages;
 }
 
-// Función para navegar a la página anterior.
+// Función para navegar a la página siguiente.
 function nextPage() {
     const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
     if (currentPage < totalPages) {
@@ -205,6 +199,7 @@ function nextPage() {
         renderPagination();
     }
 }
+
 
 // Función para navegar a la página anterior.
 function prevPage() {
@@ -236,12 +231,13 @@ function filterProducts() {
 
 
 // Función para restablecer el filtro y mostrar todos los productos.
-function borrarFiltro() {
+function resetFilter() {
     document.getElementById('productName').value = '';
     filteredProducts = products.slice(); // Restablecer a todos los productos
     currentPage = 1;
     renderProductCards();
 }
+
 
 // Función para editar un producto con el ID proporcionado.
 function editProduct(productId) {
@@ -255,7 +251,7 @@ function editProduct(productId) {
         if (nuevoPrecio !== null && nuevaCalidad !== null && nuevaTalla !== null && nuevoColor !== null) {
             // Actualizar el precio y la calidad del producto.
             product.price = parseFloat(nuevoPrecio);
-            product.quality = nuevaCalidad;
+            product.calidad = nuevaCalidad;
             product.talla = parseInt(nuevaTalla);
             product.color = nuevoColor;
             renderProductCards();

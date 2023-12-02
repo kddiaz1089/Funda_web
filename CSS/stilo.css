@@ -17,7 +17,7 @@ body {
 }
 
 img {
-    max-width: 56%;
+    max-width: 40%;
 }
 
 .container {
@@ -105,7 +105,6 @@ img {
     display: block;
     position: absolute;
     right: -58;
-    backdrop-filter: blur(10px);
     top: 100%;
     z-index: 1;
     background-color: #4e4b5076;
@@ -554,6 +553,6 @@ td {
 }
 
 #popupCard.active {
-    width: 700px; /* Ajusta el ancho deseado */
+    width: 397px; /* Ajusta el ancho deseado */
     height: 600px; /* Ajusta la altura deseada */
 }

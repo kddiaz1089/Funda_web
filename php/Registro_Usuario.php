@@ -12,7 +12,7 @@ include 'conexion.php';
 if (!validarContrasena($pass)) {
     echo '
         <script>
-        alert("La contraseña no cumple con los requisitos mínimos.");
+        alert("La contraseña no cumple con los requisitos mínimos o usuario y contraseña inconrrecta");
         window.location="/Funda_web/login.html";
         </script>';
     exit();

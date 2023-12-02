@@ -1,1 +1,0 @@
-document.getElementById("data-id").textContent = new URLSearchParams(window.location.search).get("id");
